@@ -43,3 +43,40 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Flutter/Dart specific
+*.dart_tool/
+*.idea/
+*.iml
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+build/
+pubspec.lock  # Remove this if you want to track dependency versions
+*.g.dart
+*.freezed.dart
+*.gr.dart
+
+# macOS
+.DS_Store
+
+# Android
+android/.gradle/
+android/.idea/
+android/build/
+android/local.properties
+
+# iOS
+ios/.symlinks/
+ios/Flutter/flutter_export_environment.sh
+ios/Pods/
+ios/Podfile.lock
+ios/Runner.xcworkspace/xcshareddata/
+ios/Runner.xcodeproj/project.xcworkspace/
+
+# Environment
+.env
+*.env
+
+# Logs
+*.log
