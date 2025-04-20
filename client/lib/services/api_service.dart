@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import '../models/todo.dart';
 
 class ApiService {
-  static const String baseUrl = 'http://192.168.194.11:3000';
+  static const String baseUrl = 'https://todo-mobile-app-abcs.onrender.com';
 
   // Register a new user
   Future<String> register(String email, String password) async {
