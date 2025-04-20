@@ -1,3 +1,4 @@
+import 'package:client/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../models/todo.dart';
@@ -31,25 +32,30 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
     super.dispose();
   }
 
-  Future<void> _saveChanges() async {
-    try {
-      await Provider.of<ToDoProvider>(context, listen: false).updateToDo(
-        widget.todo.id,
-        _titleController.text,
-        _descController.text,
-      );
-      setState(() {
-        _isEditing = false;
-      });
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('ToDo updated successfully')),
-      );
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error updating ToDo: $e')),
-      );
-    }
+Future<void> _saveChanges() async {
+  try {
+    await Provider.of<ToDoProvider>(context, listen: false).updateToDo(
+      widget.todo.id,
+      _titleController.text,
+      _descController.text,
+    );
+    setState(() {
+      _isEditing = false;
+    });
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('ToDo updated successfully')),
+    );
+    // After saving, navigate to the home page
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => HomeScreen()), // Replace HomePage() with your home widget
+    );
+  } catch (e) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Error updating ToDo: $e')),
+    );
   }
+}
 
   Future<void> _deleteToDo() async {
     try {
