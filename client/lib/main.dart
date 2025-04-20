@@ -45,6 +45,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       home: const AuthCheck(),
+      debugShowCheckedModeBanner: false, // This line removes the debug banner
     );
   }
 }
